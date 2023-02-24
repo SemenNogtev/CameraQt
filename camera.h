@@ -22,6 +22,9 @@ public:
     explicit Camera(QWidget *parent = nullptr);
     ~Camera();
 
+private slots:
+    void recordImage();
+
 private:
     Ui::Camera *ui;
 

@@ -54,10 +54,18 @@ Camera::Camera(QWidget *parent)
         mCameraImageCapture->capture();
         mCamera->unlock();
     });
+    connect(mCameraImageCapture, &QCameraImageCapture::readyForCaptureChanged, this, &Camera::recordImage);
 }
 
 Camera::~Camera()
 {
     delete ui;
 }
+
+void Camera::recordImage()
+{
+    qInfo("recordImage");
+    mCameraImageCapture->capture();
+}
+
 
